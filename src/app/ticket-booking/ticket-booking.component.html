@@ -1,0 +1,20 @@
+<form class="example-form" [formGroup]='bookingForm'>
+  <mat-form-field>
+    <mat-label>Movies List</mat-label>
+    <mat-select formControlName="movieName">
+      <mat-option *ngFor="let movie of moviesList" [value]="movie.id">
+        {{movie.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field><br>
+
+  <mat-form-field>
+    <mat-label>Movie Seat</mat-label>
+    <mat-select formControlName="seat">
+      <mat-option *ngFor="let seat of seatsList" [value]="seat">
+        {{seat}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field><br>
+  <button mat-button  (click)="bookTicket()" >Book Ticket</button>
+</form>
