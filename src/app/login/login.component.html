@@ -1,10 +1,13 @@
-<form class="example-form" [formGroup]='loginForm'>
-  <mat-form-field class="example-full-width">
-    <input matInput placeholder="Username" formControlName="username">
-  </mat-form-field><br>
+<div class="ticket-booking-login">
+  <form class="example-form" [formGroup]='loginForm'>
+    <div> Login Details</div>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Username" formControlName="username">
+    </mat-form-field><br>
 
-  <mat-form-field class="example-full-width">
-    <input matInput placeholder="Password" formControlName="password">
-  </mat-form-field><br>
-  <button mat-button  (click)="login()" >Login</button> <!--[disabled]="loginForm.status=='invalid'"-->
-</form>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Password" formControlName="password">
+    </mat-form-field><br>
+    <button mat-button  (click)="login()" [disabled]="loginForm.status=='INVALID'" >Login</button> <!--[disabled]="loginForm.status=='invalid'"-->
+  </form>
+</div>

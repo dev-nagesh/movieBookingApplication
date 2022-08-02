@@ -43,4 +43,8 @@ export class TicketBookingComponent implements OnInit {
       this.router.navigate(['/bookingHistory']);
     })
   }
+  logout(){
+    localStorage.clear();
+    this.router.navigate(['/login'])
+  }
 }

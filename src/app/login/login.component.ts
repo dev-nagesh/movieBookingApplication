@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
     });
   }
   login(){
-    console.log(this.loginForm.value);
+    console.log(this.loginForm);
     this.apiService.validateLogin(this.loginForm.value)
 
   }
