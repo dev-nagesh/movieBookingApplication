@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { MatButtonModule, MatCardModule, MatIconModule, MatInputModule, MatSelectModule } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthGuard } from './services/auth.guard';
 
 @NgModule({
   declarations: [
@@ -28,9 +29,10 @@ import { HttpClientModule } from '@angular/common/http';
     MatIconModule,
     MatCardModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
