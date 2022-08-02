@@ -33,6 +33,15 @@ app.post("/bookTicket",(req,resp)=>{
     }
     resp.json({booking:true});
 })
+app.post("/login",(req,resp)=>{
+    let loginDetails=req.body
+    if(loginDetails.username='user1' && loginDetails.password=='user1'){ 
+        resp.json({login:true});
+    }
+    else{
+        resp.json({login:false});
+    }
+})
 app.listen(3000,(err)=>{
     if(!err)
     {

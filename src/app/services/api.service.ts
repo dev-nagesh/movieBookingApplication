@@ -19,13 +19,15 @@ public movieSeats=[
 ] ;
   constructor(private router:Router,private http:HttpClient) { }
   validateLogin(loginDetails){
-    if(localStorage.getItem('isLoggedin')){
-      this.router.navigate(['/ticketBooking']);
-    }
-    else{
-      localStorage.setItem('isLoggedin',JSON.stringify(loginDetails.username));
-      this.router.navigate(['/ticketBooking']);
-    }
+    // if(localStorage.getItem('isLoggedin')){
+    //   this.router.navigate(['/ticketBooking']);
+    // }
+    // else{
+    //   localStorage.setItem('isLoggedin',JSON.stringify(loginDetails.username));
+    //   this.router.navigate(['/ticketBooking']);
+    // }
+    return this.http.post<any>("http://localhost:3000/login", loginDetails);
+    
   }
   getMovies(){
     //return this.moviesList;

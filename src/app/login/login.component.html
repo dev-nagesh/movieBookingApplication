@@ -1,6 +1,7 @@
 <div class="ticket-booking-login">
   <form class="example-form" [formGroup]='loginForm'>
     <div> Login Details</div>
+    <div class="login-warning" *ngIf="flashWrong"> Please provide valid login details!</div>
     <mat-form-field class="example-full-width">
       <input matInput placeholder="Username" formControlName="username">
     </mat-form-field><br>
