@@ -1,0 +1,8 @@
+.ticket-booking{
+    display: flex;
+    justify-content: space-around;
+    padding:20px
+}
+.success-padding{
+    padding-left:30%
+}

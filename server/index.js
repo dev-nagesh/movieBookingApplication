@@ -5,7 +5,7 @@ var app=express();
 app.use(bodyParser.json());
 app.use(cors());
 let moviesList=[
-    {id:1,name:'Movie1'},
+    {id:1,name:'Movie 1'},
     {id:2,name:'Movie 2'},
     {id:3,name:'Movie 3'},
 ] ;
@@ -26,10 +26,13 @@ app.post("/getSeatsList",(req,resp)=>{
 })
 app.post("/bookTicket",(req,resp)=>{
     let movieDetails=req.body
-    ticketsBooked.push({id:movieDetails.movieName,seat:movieDetails.seat});
-    let ind = movieSeats.findIndex(movieEle=>movieEle.id=movieDetails.movieName);
+    
+    let ind = movieSeats.findIndex(movieEle=>movieEle.id==movieDetails.movieName);
     if(ind!=-1){
-        movieSeats[ind].seats=movieSeats[ind].seats.filter(id=>id!=movieDetails.seat)
+        movieSeats[ind].seats=movieSeats[ind].seats.filter(id=>id!=movieDetails.seat);
+        let listind = moviesList.findIndex(listEle=>listEle.id==movieDetails.movieName);
+        let movieName=moviesList[listind]['name'];
+        ticketsBooked.push({id:movieDetails.movieName,seat:movieDetails.seat,name:movieName});
     }
     resp.json({booking:true});
 })
@@ -41,6 +44,9 @@ app.post("/login",(req,resp)=>{
     else{
         resp.json({login:false});
     }
+})
+app.get("/bookingHistory",(req,resp)=>{
+    resp.json(ticketsBooked);
 })
 app.listen(3000,(err)=>{
     if(!err)

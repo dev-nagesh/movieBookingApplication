@@ -1,3 +1,19 @@
-<p>
+<p class="success-padding">
   Your Booking is successfull!
 </p>
+<div class="ticket-booking">
+  <table class="histoy-block">
+    <tr class="histoy-headers">
+      <th>Movie Name</th>
+      <th>Seat No</th>
+    </tr >
+    <tr *ngFor="let history of bookingHistioryList" class="histoy-list">
+      <td>{{history.name}}</td>
+      <td>{{history.seat}}</td>
+    </tr>
+  </table>
+  <div>
+    <button mat-button  (click)="goToBooking()" >Go to New Booking</button>
+    <button mat-button  (click)="logout()" >Logout</button>
+  </div>
+</div>

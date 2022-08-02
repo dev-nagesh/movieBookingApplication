@@ -47,4 +47,7 @@ public movieSeats=[
     // let seatsList=this.movieSeats.filter(movieEle=> movieEle.id==movieId);
     // return seatsList;
   }
+  getBookingHistory(){
+    return this.http.get("http://localhost:3000/bookingHistory")
+  }
 }
